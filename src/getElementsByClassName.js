@@ -11,19 +11,18 @@ var getElementsByClassName = function(className) {
   var result = [];
 
 // if the element has the className inside it
-  if(element.classList && element.classList.contains(className)) {
+  if (element.classList && element.classList.contains(className)) {
     result = result.concat(element); 
   }
 // if the element has children, 
-  if(element.childNodes){
+  if (element.childNodes) {
   //if it does, run function again
     for (var i = 0; i < element.childNodes.length; i++) {
       result = result.concat(getElementsByClassName(className, element.childNodes[i])); 
     }
     
   }
-
- return result;
+  return result;
 };
 
 

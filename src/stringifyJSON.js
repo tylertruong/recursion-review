@@ -6,19 +6,19 @@
 var stringifyJSON = function(obj) {
   // your code goes here
 //check arrays
-  if(Array.isArray(obj)){
-    var result = "[";
-    for (var i = 0; i < obj.length; i++)  {
+  if (Array.isArray(obj)) {
+    var result = '[';
+    for (var i = 0; i < obj.length; i++) {
       if (obj[i] === undefined || typeof obj[i] === 'function') {
         result += 'null';
       }
-      if(i === 0) {
+      if (i === 0) {
         result += stringifyJSON(obj[i]);
       } else {
-        result += "," + stringifyJSON(obj[i]);
+        result += ',' + stringifyJSON(obj[i]);
       }
     }
-    return result + "]";
+    return result + ']';
   
 
 //check object
@@ -29,10 +29,10 @@ var stringifyJSON = function(obj) {
         continue;
       }
       if (obj[key] !== undefined) {
-        result.push(stringifyJSON(key) + ":" + stringifyJSON(obj[key]));
+        result.push(stringifyJSON(key) + ':' + stringifyJSON(obj[key]));
       }
     }
-    return "{" + result.join(',') + "}";
+    return '{' + result.join(',') + '}';
   
 
 //check string
@@ -46,6 +46,6 @@ var stringifyJSON = function(obj) {
     if (obj === undefined || typeof obj === 'function') {
       return undefined;
     }
-    return "" + obj;
+    return '' + obj;
   }
 };
